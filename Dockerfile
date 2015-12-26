@@ -54,8 +54,8 @@ RUN cd /home/nginx-php && \
     cd nginx-1.9.9 && \
     ./configure --prefix=/usr/local/nginx \
     --user=www --group=www \
-    --error-log-path=/var/log/nginx_error.log \
-    --http-log-path=/var/log/nginx_access.log \
+    --error-log-path=/data/log/nginx_error.log \
+    --http-log-path=/data/log/nginx_access.log \
     --pid-path=/var/run/nginx.pid \
     --with-pcre \
     --with-http_ssl_module \
@@ -131,11 +131,11 @@ RUN cd / && rm -rf /home/nginx-php
 
 #Create web folder
 VOLUME ["/data"]
-ADD index.php /data/www/index.php
 
 #Update nginx config
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
-
+# update mariadb config
+ADD my.conf /etc/my.conf
 #Start
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
