@@ -1,4 +1,4 @@
-FROM centos:7
+FROM index.alauda.cn/library/centos:centos7.2.1511
 MAINTAINER Skiychan <dev@skiy.net>
 ##
 # Nginx: 1.9.9
