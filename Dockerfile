@@ -12,7 +12,10 @@ RUN yum install -y gcc \
     automake \
     libtool \
     make \
-    cmake && \
+    cmake \
+    mariadb-server \
+    mariadb-devel \
+    mariadb && \
     yum clean all
 
 #Install PHP library
