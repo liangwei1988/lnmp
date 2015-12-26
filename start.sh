@@ -99,5 +99,4 @@ else
     echo "=> Using an existing volume of MariaDB"
 fi
 
-exec mysqld_safe
 /usr/bin/supervisord -n -c /etc/supervisord.conf
