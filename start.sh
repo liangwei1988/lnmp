@@ -17,7 +17,9 @@ if [[ -n "$PROXY_WEB" ]]; then
 
     [ -f "${Nginx_Install_Dir}/conf/ssl" ] || mkdir -p $Nginx_Install_Dir/conf/ssl
     [ -f "${Nginx_Install_Dir}/conf/vhost" ] || mkdir -p $Nginx_Install_Dir/conf/vhost
-
+    ln -s  $Nginx_Install_Dir/conf/ssl /data/nginx/conf/ssl 
+    ln -s  $Nginx_Install_Dir/conf/vhost /data/nginx/conf/vhost
+   /data/nginx/conf/ssl
     if [ -z "$PROXY_DOMAIN" ]; then
             echo >&2 'error:  missing PROXY_DOMAIN'
             echo >&2 '  Did you forget to add -e PROXY_DOMAIN=... ?'
