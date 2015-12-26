@@ -1,5 +1,5 @@
 FROM index.alauda.cn/library/centos:centos7.2.1511
-MAINTAINER Skiychan <dev@skiy.net>
+MAINTAINER liangwei <liang.wei@outlook.com>
 ##
 # Nginx: 1.9.9
 # PHP  : 7.0.1
@@ -20,7 +20,7 @@ RUN yum install -y gcc \
 
 #Install PHP library
 ## libmcrypt-devel DIY
-rpm -ivh http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     yum install -y wget \
     zlib \
     zlib-devel \
@@ -143,7 +143,7 @@ RUN chmod +x /start.sh
 #Set port
 EXPOSE 80 443
 
-#ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
 
 #Start web server
-CMD ["/bin/bash", "/start.sh"]
+#CMD ["/bin/bash", "/start.sh"]
