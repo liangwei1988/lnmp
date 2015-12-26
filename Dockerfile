@@ -17,7 +17,7 @@ RUN yum install -y gcc \
 
 #Install PHP library
 ## libmcrypt-devel DIY
-RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm && \
+rpm -ivh http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     yum install -y wget \
     zlib \
     zlib-devel \
@@ -43,7 +43,7 @@ RUN groupadd -r www && \
 #Download nginx & php
 RUN mkdir -p /home/nginx-php && cd $_ && \
     wget -c -O nginx.tar.gz http://nginx.org/download/nginx-1.9.9.tar.gz && \
-    wget -O php.tar.gz http://am1.php.net/get/php-7.0.1.tar.gz/from/this/mirror
+    wget -O php.tar.gz http://cn2.php.net/get/php-7.0.1.tar.gz/from/this/mirror
 
 #Make install nginx
 RUN cd /home/nginx-php && \
@@ -127,7 +127,7 @@ ADD supervisord.conf /etc/supervisord.conf
 RUN cd / && rm -rf /home/nginx-php
 
 #Create web folder
-VOLUME ["/data/www", "/usr/local/nginx/conf/ssl", "/usr/local/nginx/conf/vhost"]
+VOLUME ["/data"]
 ADD index.php /data/www/index.php
 
 #Update nginx config
